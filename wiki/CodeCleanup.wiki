@@ -1,0 +1,237 @@
+= Files that are no longer used =
+
+(but we might want to keep around to use in the future)
+
+ * write state (this will be replaced by Rggobi2 functionality)
+   * I think the purpose is to write out the current file names and displays so ggobi can start up where it left off; I agree with replacing it. (dfs)
+ * dbms related stuff (should be a plugin)
+ * noop-checkbutton.c (not currently built - not currently needed but should be kept around)
+
+These could be moved into an old directory so they are out of the way, but still easily accessible.
+
+Deleted
+ * write svg (plugin, should we have rendering plugins?)
+   * doubtless obsolete, and never completed in the first place; deleted (dfs)
+ * record_id.c (not currently built?)
+   * obsolete; deleted (dfs)
+ * rotate_ui.c (not currently built - apparently replaced by tour2d3)
+   * obsolete; deleted (dfs)
+ * scale_click.c (not currently built?)
+   * obsolete; deleted (dfs)
+ * ascii (and binary, see read_array.c) read and write code
+   * deleted. (dfs)
+ * s_erf.c (error function stuff, required by C99 standard, so we don't need this anymore)
+
+= Code that is no longer used: =
+
+(Found by grepping for #ifdef)
+
+== Things I'm pretty sure could be removed ==
+
+ * DISALLOW_PARADOX_QUOTE_ERRORS - This will be rewritten eventually using GScanner
+ * BEFORE      barchart.c:555
+ * WRITEASCII      io.c:106
+   * deleted (dfs)
+ * XXX      read_xml.c:304
+ * FORMERLY      vartable_ui.c:376
+ * GGOBI_MAIN      GGStructSizes.c:32
+ * G_ENABLE_DEBUG      marshal.c:5
+ * G_LIKELY      ggobi-data.c:15
+ * HAVE_UNDERSCORE_SYMBOL_PREFIX      plugin.c:186
+ * OBSOLETE_EDGE_CODE      ggobi-API.c:794
+   * deleted (dfs)
+ * OVER      tourcorr.c:663
+ * PREV      barchart.c:1233
+ * PREV      barchart.c:1341
+ * PREV      barchartClass.c:537
+ * SPECTRUM7      color.c:126
+   * keep for debugging purposes (dfs)
+ * UNUSED      read_array.c:463
+ * USE_DEPRECATED      read_array.c:487
+ * TEST_DESTROY      ggobiClass.c:231
+ * TEST_DESTROY      ggobiClass.c:247
+ * TEST_GGOBI_APPP      ggobi.c:444
+ * TEST_GGOBI_EVENTS      main_ui.c:1070
+ * TEST_GGOBI_EVENTS      main_ui.c:35
+ * TEST_KEYS      ggobi.c:304
+ * TEST_KEYS      ggobi.c:422
+ * FORCE_ADD_DISPLAY      ggobi-API.c:431
+ * FORCE_ADD_DISPLAY      ggobi-API.c:446
+ * FORCE_ADD_DISPLAY      ggobi-API.c:459
+ * FORCE_ADD_DISPLAY      ggobi-API.c:473
+
+
+== Past experiments that never got finished? ==
+
+ * SMOOTH_IMPLEMENTED      main_ui.c:783
+ * SMOOTH_IMPLEMENTED      main_ui.c:889
+ * SMOOTH_IMPLEMENTED      main_ui.c:949
+ * INFERENCE_IMPLEMENTED      main_ui.c:879
+ * INFERENCE_IMPLEMENTED      main_ui.c:931
+ * TS_EXTENSIONS_IMPLEMENTED      time_ui.c:102
+ * TS_EXTENSIONS_IMPLEMENTED      time_ui.c:29
+ * TS_EXTENSIONS_IMPLEMENTED      time_ui.c:47
+ * TS_EXTENSIONS_IMPLEMENTED      time_ui.c:76
+ * EXPLICIT_IDENTIFY_HANDLER      ggobi-API.c:1074
+ * EXPLICIT_IDENTIFY_HANDLER      identify_ui.c:203
+ * FREEZE_IMPLEMENTED      varcircles.c:246
+ * FREEZE_IMPLEMENTED      varcircles.c:279
+ * FREEZE_IMPLEMENTED      varcircles.c:443
+ * STORE_SESSION_ENABLED      main_ui.c:858
+
+== Tour related ==
+
+ * TESTING_TOUR_STEP      tour1d.c:381
+ * TESTING_TOUR_STEP      tour1d.c:58
+ * TESTING_TOUR_STEP      tour1d.c:824
+ * TOUR_ADV_IMPLEMENTED   tour1d_ui.c:155
+ * TOUR_ADV_IMPLEMENTED   tour1d_ui.c:303
+ * TOUR_ADV_IMPLEMENTED   tour1d_ui.c:330
+ * TOUR_ADV_IMPLEMENTED   tour1d_ui.c:362
+ * TOUR_ADV_IMPLEMENTED   tour1d_ui.c:372
+ * TOUR_ADV_IMPLEMENTED   tour1d_ui.c:381
+ * TOUR_ADV_IMPLEMENTED   tour1d_ui.c:388
+ * TOUR_ADV_IMPLEMENTED   tour1d_ui.c:402
+ * TOUR_ADV_IMPLEMENTED   tour1d_ui.c:409
+ * TOUR_ADV_IMPLEMENTED   tour1d_ui.c:426
+ * TOUR_ADV_IMPLEMENTED   tour2d_ui.c:134
+ * TOUR_ADV_IMPLEMENTED   tour2d_ui.c:293
+ * TOUR_ADV_IMPLEMENTED   tour2d_ui.c:324
+ * TOUR_ADV_IMPLEMENTED   tour2d_ui.c:380
+ * TOUR_ADV_IMPLEMENTED   tourcorr_ui.c:128
+ * TOUR_PP_IMPLEMENTED    tourcorr_ui.c:123
+ * TOUR_PP_IMPLEMENTED    tourcorr_ui.c:336
+ * TOUR_PP_IMPLEMENTED    tourcorr_ui.c:75
+ * EXCEPTION_HANDLING     tour.c:408
+ * EXCEPTION_HANDLING     tour.c:430
+ * EXCEPTION_HANDLING     tour.c:440
+ * EXCEPTION_HANDLING     tour.c:450
+ * EXCEPTION_HANDLING     tour.c:493
+ * EXCEPTION_HANDLING     tour.c:598
+ * EXCEPTION_HANDLING     tour.c:812
+ * EXCEPTION_HANDLING     tour2d.c:1292
+ * EXCEPTION_HANDLING     tour2d.c:1299
+ * EXCEPTION_HANDLING     tour2d.c:1306
+ * EXCEPTION_HANDLING     tour2d.c:1366
+ * EXCEPTION_HANDLING     tour2d.c:950
+ * EXCEPTION_HANDLING     tour2d3.c:1011
+ * EXCEPTION_HANDLING     tour2d3.c:1018
+ * EXCEPTION_HANDLING     tour2d3.c:1025
+ * EXCEPTION_HANDLING     tour2d3.c:1085
+ * EXCEPTION_HANDLING     tour2d3.c:663
+
+== Database related ==
+
+ * USE_DBMS      GGStructSizes.c:11
+ * USE_DBMS      GGStructSizes.c:24
+ * USE_MYSQL      ggobi.c:158
+ * USE_MYSQL      make_ggobi.c:39
+ * USE_PROPERTIES      dbms.c:231
+ * USE_PROPERTIES      dbms_ui.c:19
+
+
+== Don't know why we have these ones ==
+
+I don't know for sure, either, but I know that some compilers on some architectures require include files that others don't. (dfs)
+
+ * USE_STRINGS_H      brush_ui.c:22
+ * USE_STRINGS_H      color.c:19
+ * USE_STRINGS_H      display.c:18
+ * USE_STRINGS_H      identify_ui.c:19
+ * USE_STRINGS_H      io.c:21
+ * USE_STRINGS_H      lineedit_ui.c:18
+ * USE_STRINGS_H      main_ui.c:19
+ * USE_STRINGS_H      movepts_ui.c:18
+ * USE_STRINGS_H      p1d_ui.c:17
+ * USE_STRINGS_H      rotate_ui.c:18
+ * USE_STRINGS_H      scale_ui.c:19
+ * USE_STRINGS_H      scatmat.c:17
+ * USE_STRINGS_H      scatmat_ui.c:17
+ * USE_STRINGS_H      tour.c:20
+ * USE_STRINGS_H      tour1d.c:18
+ * USE_STRINGS_H      tour1d_pp.c:23
+ * USE_STRINGS_H      tour1d_ui.c:19
+ * USE_STRINGS_H      tour2d.c:18
+ * USE_STRINGS_H      tour2d3.c:18
+ * USE_STRINGS_H      tour2d3_ui.c:19
+ * USE_STRINGS_H      tour2d_pp.c:23
+ * USE_STRINGS_H      tour2d_ui.c:19
+ * USE_STRINGS_H      tourcorr.c:18
+ * USE_STRINGS_H      tourcorr_ui.c:19
+ * USE_STRINGS_H      tour_pp.c:23
+ * USE_STRINGS_H      varpanel_ui.c:18
+ * USE_STRINGS_H      xyplot_ui.c:17
+
+== Windows related ==
+
+(should be reduced as much as possible, use more
+cross-platform gtk stuff?)
+
+ * WIN32      splot.c:402
+ * WIN32      splot.c:526
+ * WIN32      sp_plot.c:182
+ * WIN32      sp_plot.c:214
+ * WIN32      sp_plot.c:348
+ * WIN32      sp_plot.c:387 - Need to test speed without Win32 drawing code.
+ * WIN32      win32_draw.c:35
+ * G_OS_WIN32      plugin.c:26 
+ * G_OS_WIN32      plugin.c:562
+ * G_OS_WIN32      plugin.c:718 - The plugin stuff should be moved to libltdl for cross-platform compatibility.
+
+== Compiler ==
+
+ * __STRICT_ANSI__      fileio.c:27
+ * __STRICT_ANSI__      plugin.c:61
+
+== Files with #if 0 ==
+
+ * barchartClass.c:577
+ * barchart_ui.c:368
+ * barchart_ui.c:97 - This is now BARCHART_SCALE
+ * edges.c:261
+   * added comment (dfs)
+ * tour2d_pp.c:693
+
+== Cairo experiementation ==
+
+ * ENABLE_CAIRO      scatterplotClass.c:260
+ * ENABLE_CAIRO      scatterplotClass.c:275
+ * ENABLE_CAIRO      scatterplotClass.c:28
+ * ENABLE_CAIRO      scatterplotClass.c:303
+ * ENABLE_CAIRO      scatterplotClass.c:327
+ * ENABLE_CAIRO      scatterplotClass.c:355
+ * ENABLE_CAIRO      scatterplotClass.c:367
+ * ENABLE_CAIRO      scatterplotClass.c:412
+ * ENABLE_CAIRO      sp_plot_axes.c:100
+ * ENABLE_CAIRO      sp_plot_axes.c:131
+ * ENABLE_CAIRO      sp_plot_axes.c:151
+ * ENABLE_CAIRO      sp_plot_axes.c:157
+ * ENABLE_CAIRO      sp_plot_axes.c:162
+ * ENABLE_CAIRO      sp_plot_axes.c:225
+ * ENABLE_CAIRO      sp_plot_axes.c:246
+ * ENABLE_CAIRO      sp_plot_axes.c:252
+ * ENABLE_CAIRO      sp_plot_axes.c:257
+ * ENABLE_CAIRO      sp_plot_axes.c:373
+ * ENABLE_CAIRO      sp_plot_axes.c:379
+ * ENABLE_CAIRO      sp_plot_axes.c:384
+ * ENABLE_CAIRO      sp_plot_axes.c:407
+ * ENABLE_CAIRO      sp_plot_axes.c:413
+ * ENABLE_CAIRO      sp_plot_axes.c:418
+ * ENABLE_CAIRO      sp_plot_axes.c:437
+ * ENABLE_CAIRO      sp_plot_axes.c:49
+ * ENABLE_CAIRO      sp_plot_axes.c:56
+ * ENABLE_CAIRO      sp_plot_axes.c:89
+ * ENABLE_CAIRO      sp_plot_axes.c:95
+ * ENABLE_CAIRO      utils_gdk.c:23
+ * ENABLE_CAIRO      utils_gdk.c:296
+ * ENABLE_CAIRO      varcircles.c:23
+ * ENABLE_CAIRO      varcircles.c:259
+ * ENABLE_CAIRO      varcircles.c:284
+ * ENABLE_CAIRO      varcircles.c:641
+ * ENABLE_CAIRO      varcircles.c:671
+ * ENABLE_CAIRO      varcircles.c:695
+ * ENABLE_CAIRO      varcircles.c:719
+ * ENABLE_CAIRO      varcircles.c:726
+ * ENABLE_CAIRO      varcircles.c:734
+
+There'll be a lot less of these once we get a modular rendering system.
