@@ -2,7 +2,9 @@
 
 = Building GGobi OS X =
 
-== Step One: Install dependencies == 
+This guide assumes some expertise with the command line.
+
+== Step One: Install dependencies ==
 
 Install the following in the usual mac manner
 
@@ -35,3 +37,5 @@ sudo cp ggobirc /etc/xdg/ggobi/ggobirc
 }}}
 
 Make sure {{{/usr/local/bin}}} is on your path, then you can then run ggobi using {{{ggobi}}}
+
+
