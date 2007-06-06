@@ -4,7 +4,11 @@
 Welcome to the GGobi development site.  This site is used by the developers to report and track bugs, track changes to the source and provide documentation for development tasks.
 
  * ReportingBugs
+
+== Building GGobi from source ==
+
  * DevInstallGuide
+ * MacInstallGuide
  * WindowsInstallGuide
 
 == GGobi redevelopment ==
