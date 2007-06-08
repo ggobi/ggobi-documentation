@@ -15,7 +15,7 @@ Install the following in the usual mac manner
 Then, from the terminal, run (this will take a while, so you might want to do it overnight):
 
 {{{
-sudo port install gtk2 automake libtool graphviz svn
+sudo port install gtk2 automake libtool graphviz
 ln -s /opt/local/bin/glibtool /opt/local/bin/libtool
 ln -s /opt/local/bin/glibtoolize /opt/local/bin/libtoolize
 }}}
@@ -37,5 +37,4 @@ sudo cp ggobirc /etc/xdg/ggobi/ggobirc
 }}}
 
 Make sure {{{/usr/local/bin}}} is on your path, then you can then run ggobi using {{{ggobi}}}
-
 
