@@ -57,7 +57,7 @@ Make sure you have the latest version (>= 2.4) of  [http://developer.apple.com/t
 I'd recommend [http://macports.org/ MacPorts] to install the requirements.  After you have installed macports, run the following code:
 
 {{{
-sudo port install gtk2 gtk-doc-devel libxml2 automake libtool graphviz subversion
+sudo port install gtk2 gtk-doc libxml2 automake libtool graphviz subversion
 ln -s /opt/local/bin/glibtool /opt/local/bin/libtool
 ln -s /opt/local/bin/glibtoolize /opt/local/bin/libtoolize
 }}}
