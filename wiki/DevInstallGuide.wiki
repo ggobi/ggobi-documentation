@@ -11,6 +11,7 @@ Requirements:
  * automake (1.9.6 is good)
  * gettext 0.14.5
  * gtk-doc
+ * [http://live.gnome.org/Vala Vala]
 
 for Mac specific notes on installing requirements see bottom of page
 
