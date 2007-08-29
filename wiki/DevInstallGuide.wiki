@@ -12,6 +12,7 @@ Requirements:
  * gettext 0.14.5
  * gtk-doc
  * [http://live.gnome.org/Vala Vala]
+ * libgsf
 
 for Mac specific notes on installing requirements see bottom of page
 
