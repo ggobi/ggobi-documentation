@@ -1,7 +1,6 @@
 = Building GGobi on Windows from Source =
 
-This document attempts to explain how to build GGobi (>= 2.0) for Windows. It 
-assumes that the reader is reasonably familiar with building packages in linux.
+This document attempts to explain how to build GGobi (>= 2.0) for Windows. It assumes that the reader is reasonably familiar with building packages in Linux. This process is reasonably streamlined compared to the past, as the MinGW environment has improved immensely.
 
 == Getting the required tools and libraries: ==
 
@@ -9,25 +8,13 @@ assumes that the reader is reasonably familiar with building packages in linux.
 The tools we use to build the GGobi distribution depend
 on having the [http://www.mingw.org MinGW and MSYS tools]
 installed.  MinGW is Minimalist GNU for Windows, 
-essentially gcc for Windows. MSYS is a build environment for MinGW. For MinGW, 
-there are options within the installation that allow you to customize which 
-packages are installed (this can also be done after the initial installation). 
-First it asks you whether you want the previous, current, or candidate version. 
-Go ahead and choose 'candidate' so that we're on the bleeding edge. 
-The next step lets you decide which individual packages are installed. 
-Be sure that you include the MinGW base tools, g++ (The C++ compiler, libtool looks for it) and the g77 
-package (if you want to build Rggobi2, it's an R thing). You'll also want the 
-[http://prdownloads.sourceforge.net/mingw/msysDTK-1.0.1.exe?download MSYS DTK]. Download and install these three packages. You'll need to upgrade your autoconf, automake, and libtool, by downloading the (binary) tarballs and unpacking them into the `msys/1.0` directory.
+essentially gcc for Windows. MSYS is a build environment for MinGW. An [http://sourceforge.net/projects/mingw/files/Automated%20MinGW%20Installer/mingw-get-inst/ automatic installer] is available. There are options within the installation that allow you to customize which 
+packages are installed. 
+Be sure that you install support for the MinGW base tools, C++ (libtool looks for it), and Fortran (if you want to build rggobi, it's an R thing). You'll also want the Developer Toolkit, which includes things like the GNU autotools.
 
 === GTK development environment: === 
 Download the latest GTK+
-[http://gladewin32.sourceforge.net/ developer package] and install it into `msys/1.0/local`. You may need to hack any `-lm` tokens out of the `.pc` files in `/usr/local/lib/pkgconfig` - libtool will refuse to make a DLL if GGobi is linked against the static liblm in MinGW.
-
-=== gettext ===
-GGobi uses gettext for internationlization. At this point, we don't have any translations and I haven't been able to actually link GGobi to libintl on Windows. However, the bootstrap process requires the `autopoint` tool, so you'll need the [http://mirror.calvin.edu/cygwin/release/gettext/gettext-devel/ gettext-devel] package from the [http://www.cygwin.com Cygwin] project. Unpack the archive so that everything is under `/usr/local` instead of `/usr`. Note that any binaries that are not from the MinGW project or built specially for MSYS cannot be placed in the `/msys/1.0/bin` (`/bin` and `/usr/bin` inside MSYS) directory. You then need to hack the /usr/local/bin/autopoint script so that `prefix` is defined as `/usr/local` instead of `/usr`.
-
-=== file magic ===
-Libtool requires the `file` utility. Download the convenient [http://gnuwin32.sourceforge.net/packages/file.htm setup package] and install it somewhere on your path (like `/usr/local`). Note that version 4.18 does not seem to work - better stick with 4.16. You may need to copy `pcre.dll` to `pcre3.dll` to get 4.16 to work.
+[http://www.gtk.org/download-windows.html developer package] and install it into `MinGW/msys/1.0/local`. You might need to create the `local` directory. 
 
 === GObject Builder: === 
 You need the 
