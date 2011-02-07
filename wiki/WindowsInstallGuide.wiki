@@ -14,23 +14,19 @@ Be sure that you install support for the MinGW base tools, C++ (libtool looks fo
 
 === GTK development environment: === 
 Download the latest GTK+
-[http://www.gtk.org/download-windows.html developer package] and install it into `MinGW/msys/1.0/local`. You might need to create the `local` directory. 
+[http://www.gtk.org/download-windows.html developer packages] and unzip them into `MinGW/msys/1.0/local`. You might need to create the `local` directory. This includes GLib, ATK, Pango, gdk-pixbuf and GTK+ itself. Somewhat surprisingly, the developer packages do not include the runtime (DLL) packages, so you will need to download those, as well. The same goes for all of the third-party dependencies listed on that page. Happy clicking.
+
+=== pkg-config ===
+
+For GGobi and other tools to find installed copies of headers and libraries, we need the pkg-config tool. The GTK+ project makes a [http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config_0.25-1_win32.zip binary] available. Unzip that into the same tree as you unzipped GTK+.
 
 === GObject Builder: === 
 You need the 
-[http://http://www.5z.com/jirka/gob.html GObject builder] to build GGobi from SVN.
-Grab the binary attachment:"gob2.exe" and place it in `/usr/local/bin`. 
-
-If you want to build it yourself, you need the Flex library. Get the package offered by the 
-[http://unxutils.sourceforge.net/ UnxUtils project] and move the contents 
-of the `/usr/local/lib` directory in the zip file to your `/GTK/lib` directory. 
-Now you can unpack the gob2 archive into your home directory, `configure`, 
-`make`, and `make install` it.
+[http://http://www.5z.com/jirka/gob.html GObject builder] to build GGobi from SVN. There is no Windows binary available. Grab the latest source. You will need the Flex import library (.lib) from the `/usr/local/lib` directory in the zip file from the [http://sourceforge.net/projects/unxutils/files/unxutils/current/ UnxUtils project]. Now, unpack the gob2 archive into your home directory. When running configure, set `LIBS="-lfl -L/usr/local/lib"`.  That way, it will find the flex import library. Now just `make`, and `make install` it.
 
 === Nullsoft Installer: === 
 GGobi uses the nullsoft installation system, so 
-if you want to build the GGobi installer (exe), download and install the latest 
-[http://nsis.sourceforge.net/ nullsoft installer] now.
+if you want to build the GGobi installer (exe), download and install the latest [http://nsis.sourceforge.net/ nullsoft installer] now.
 You need to place the path to your `makensis.exe` in your `PATH` environment variable.
 
 === gtk-doc ===
