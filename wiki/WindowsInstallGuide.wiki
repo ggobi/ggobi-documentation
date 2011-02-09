@@ -55,7 +55,7 @@ should do. Next, switch to the
 ACLOCAL_PATH=/usr/local/share/aclocal ./bootstrap
 }}}
 If that worked, the build system is ready to be configured:
-{{{H
+{{{
 ./configure --with-all-plugins
 }}}
 and then `make`.
