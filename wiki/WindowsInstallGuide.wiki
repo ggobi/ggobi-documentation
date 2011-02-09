@@ -1,6 +1,6 @@
 = Building GGobi on Windows from Source =
 
-This document attempts to explain how to build GGobi (>= 2.0) for Windows. It assumes that the reader is reasonably familiar with building packages in Linux. This process is reasonably streamlined compared to the past, as the MinGW environment has improved immensely.
+This document attempts to explain how to build GGobi (at least the release branch) for Windows. It assumes that the reader is reasonably familiar with building packages in Linux. This process is reasonably streamlined compared to the past, as the MinGW environment has improved immensely.
 
 == Getting the required tools and libraries: ==
 
@@ -14,15 +14,17 @@ Be sure that you install support for the MinGW base tools, C++ (libtool looks fo
 
 === GTK development environment: === 
 Download the latest GTK+
-[http://www.gtk.org/download-windows.html developer packages] and unzip them into `MinGW/msys/1.0/local`. You might need to create the `local` directory. This includes GLib, ATK, Pango, gdk-pixbuf and GTK+ itself. Somewhat surprisingly, the developer packages do not include the runtime (DLL) packages, so you will need to download those, as well. The same goes for all of the third-party dependencies listed on that page. Happy clicking.
+[http://www.gtk.org/download-windows.html developer bundle] and unzip it into `MinGW/msys/1.0/local`. You might need to create the `local` directory. This includes GLib, ATK, Pango, gdk-pixbuf and GTK+ itself. 
 
-=== pkg-config ===
+=== Libxml2 ===
 
-For GGobi and other tools to find installed copies of headers and libraries, we need the pkg-config tool. The GTK+ project makes a [http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config_0.25-1_win32.zip binary] available. Unzip that into the same tree as you unzipped GTK+.
+Get the libxml2 [ftp://xmlsoft.org/libxml2/win32/ binaries] and unzip them into the same tree as the GTK+ stuff. Place this [http://code.google.com/p/ggobi-documentation/downloads/detail?name=libxml-2.0.pc&can=2&q= pkg-config file] into `/usr/local/lib/pkgconfig`.
 
 === GObject Builder: === 
 You need the 
-[http://http://www.5z.com/jirka/gob.html GObject builder] to build GGobi from SVN. There is no Windows binary available. Grab the latest source. You will need the Flex import library (.lib) from the `/usr/local/lib` directory in the zip file from the [http://sourceforge.net/projects/unxutils/files/unxutils/current/ UnxUtils project]. Now, unpack the gob2 archive into your home directory. When running configure, set `LIBS="-lfl -L/usr/local/lib"`.  That way, it will find the flex import library. Now just `make`, and `make install` it.
+[http://http://www.5z.com/jirka/gob.html GObject builder] to build GGobi from SVN. We provide a [http://code.google.com/p/ggobi-documentation/downloads/detail?name=gob2.exe&can=2&q= binary].
+
+To build it yourself, grab the latest source. You will need the Flex import library (.lib) from the `/usr/local/lib` directory in the zip file from the [http://sourceforge.net/projects/unxutils/files/unxutils/current/ UnxUtils project]. Now, unpack the gob2 archive into your home directory. When running configure, set `LIBS="-lfl -L/usr/local/lib"`.  That way, it will find the flex import library. Now just `make`, and `make install` it.
 
 === Nullsoft Installer: === 
 GGobi uses the nullsoft installation system, so 
@@ -30,34 +32,31 @@ if you want to build the GGobi installer (exe), download and install the latest 
 You need to place the path to your `makensis.exe` in your `PATH` environment variable.
 
 === gtk-doc ===
-The GGobi build scripts depend on gtk-doc, but there is no gtk-doc for Windows.
-You won't need to build any documentation, so let's fake it. Download
-the attachment:"gtk-doc-fake.tar.bz2" and extract it into `msys/local`. That archive contains a few
-hacked files from gtk-doc that makes GGobi think gtk-doc is there and working.
+If you want to build the abandoned trunk of GGobi, you'll need to fake an [http://www.go-evolution.org/Building_Evolution_on_Windows#Fake_gtk-doc installation] of gtk-doc.
 
 === Subversion: === 
 In order to get the latest source code, you'll need 
-[http://subversion.tigris.org/ subversion].
+[http://subversion.apache.org/packages.html#windows subversion].
 
 == Compilation: == 
-Start MSYS. You will find yourself in your "user" directory. 
+Start the MinGW Shell. You will find yourself in your "user" directory. 
 This is where we will do all of our work. Type 
 {{{
-svn co http://ggobi.org/svn/ggobi ggobi
+svn co svn://ggobi.org/ggobi
 }}}
 to grab the entire repository, including Rggobi2, the website, the GGobi book, etc. 
-If you're not a core GGobi dev or you're only interested in GGobi itself, 
+If you're not a core GGobi dev or you're only interested in the release branch of GGobi itself, 
 {{{
-svn co http://ggobi.org/svn/ggobi/ggobi/trunk ggobi
+svn co svn://ggobi.org/ggobi/ggobi/branches/ggobi-2.1.4 ggobi
 }}}
 should do. Next, switch to the 
 `~/ggobi/ggobi/trunk` (or `~/ggobi` if you only got GGobi) directory and type: 
 {{{
-./bootstrap
+ACLOCAL_PATH=/usr/local/share/aclocal ./bootstrap
 }}}
 If that worked, the build system is ready to be configured:
-{{{
-./configure
+{{{H
+./configure --with-all-plugins
 }}}
 and then `make`.
 
@@ -73,6 +72,8 @@ Installation System.
 Run `make win32-installer` to build the setup executable.
 
 = Building RGGobi2 on Windows: =
+
+CRAN currently provides an rggobi binary, so there is really no reason to build rggobi on Windows. The following instructions are obsolete, but might serve as a general guide in a pinch.
 
 Follow the instructions for building ggobi on Windows in the ggobi
 distribution files. You'll at least need the same development
