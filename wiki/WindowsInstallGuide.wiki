@@ -18,7 +18,7 @@ Download the latest GTK+
 
 === Libxml2 ===
 
-Get the libxml2 [ftp://xmlsoft.org/libxml2/win32/ binaries] and unzip them into the same tree as the GTK+ stuff. Place this [http://code.google.com/p/ggobi-documentation/downloads/detail?name=libxml-2.0.pc&can=2&q= pkg-config file] into `/usr/local/lib/pkgconfig`.
+Get the libxml2 [ftp://xmlsoft.org/libxml2/win32/ binaries] and unzip them into the same tree as the GTK+ stuff. Place this [http://code.google.com/p/ggobi-documentation/downloads/detail?name=libxml-2.0.pc&can=2&q= pkg-config file] into `/usr/local/lib/pkgconfig`. You will need to rename the import library libxml2.lib to libxml2.dll.a, otherwise the linker has issues finding it.
 
 === GObject Builder: === 
 You need the 
@@ -52,7 +52,7 @@ svn co svn://ggobi.org/ggobi/ggobi/branches/ggobi-2.1.4 ggobi
 should do. Next, switch to the 
 `~/ggobi/ggobi/trunk` (or `~/ggobi` if you only got GGobi) directory and type: 
 {{{
-ACLOCAL_PATH=/usr/local/share/aclocal ./bootstrap
+./bootstrap
 }}}
 If that worked, the build system is ready to be configured:
 {{{
@@ -60,8 +60,8 @@ If that worked, the build system is ready to be configured:
 }}}
 and then `make`.
 
-If you have trouble send an [mailto:ggobi-help@ggobi.org email], 
-complete with the error messages from the MSYS window. We'll aim to help as
+If you have trouble send an [mailto:ggobi@googlegroups.com email], 
+complete with the error messages from the shell window. We'll aim to help as
 possible.
 
 == Building the Self-installing Executable ==
