@@ -17,7 +17,7 @@ So that the MinGW aclocal finds the macros we will install, we need to execute t
 echo "/usr/local/share/aclocal" > /mingw/share/aclocal/dirlist
 }}}
 
-You'll also want to delete any files starting with libintl in the /mingw/bin and /mingw/lib directories. This is so that we link against the intl.dll in /usr/local/bin, the same DLL the GTK+ DLL's are built against. Probably a cleaner way, like not installing gettext with MinGW, but not sure if that is possible through the automatic installer.
+You'll also want to delete any files starting with libintl in the /mingw/lib directory. This is so that we link against the intl.dll in /usr/local/bin, the same DLL the GTK+ DLL's are built against. Probably a cleaner way, like not installing gettext with MinGW, but not sure if that is possible through the automatic installer.
 
 === GTK development environment: === 
 Download the latest GTK+
