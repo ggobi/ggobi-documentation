@@ -21,7 +21,7 @@ You'll also want to delete any files starting with libintl in the /mingw/lib dir
 
 === GTK development environment: === 
 Download the latest GTK+
-[http://www.gtk.org/download-windows.html developer bundle] and unzip it into `MinGW/msys/1.0/local`. You might need to create the `local` directory. This includes GLib, ATK, Pango, gdk-pixbuf and GTK+ itself. 
+[http://www.gtk.org/download/win64.php developer bundle] and unzip it into `MinGW/msys/1.0/local`. You might need to create the `local` directory. This includes GLib, ATK, Pango, gdk-pixbuf and GTK+ itself. 
 
 === Libxml2 ===
 
