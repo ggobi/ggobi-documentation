@@ -29,7 +29,7 @@ Get the libxml2 [ftp://xmlsoft.org/libxml2/win32/ binaries] and their libiconv d
 
 === GObject Builder: === 
 You need the 
-[http://http://www.5z.com/jirka/gob.html GObject builder] to build GGobi from SVN. We provide a [http://code.google.com/p/ggobi-documentation/downloads/detail?name=gob2.exe&can=2&q= binary].
+[http://www.5z.com/jirka/gob.html GObject builder] to build GGobi from SVN. We provide a [http://code.google.com/p/ggobi-documentation/downloads/detail?name=gob2.exe&can=2&q= binary].
 
 To build it yourself, grab the latest source. You will need the Flex import library (.lib) from the `/usr/local/lib` directory in the zip file from the [http://sourceforge.net/projects/unxutils/files/unxutils/current/ UnxUtils project]. Now, unpack the gob2 archive into your home directory. When running configure, set `LIBS="-lfl -L/usr/local/lib"`.  That way, it will find the flex import library. Now just `make`, and `make install` it.
 
