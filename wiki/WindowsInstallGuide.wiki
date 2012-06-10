@@ -21,6 +21,10 @@ echo "/usr/local/share/aclocal" > /mingw/share/aclocal/dirlist
 
 You'll also want to delete any files starting with libintl in the /mingw/lib directory. This is so that we link against the intl.dll in /usr/local/bin, the same DLL the GTK+ DLL's are built against. Probably a cleaner way, like not installing gettext with MinGW, but not sure if that is possible through the automatic installer.
 
+=== RTools ===
+
+For compiling on 64 bit, we need to download and install the [http://cran.cnr.berkeley.edu/bin/windows/Rtools/Rtools215.exe Rtools]. Yes, GGobi is not based on R, but the main MinGW installation only includes a 32 bit compiler. Rtools provides a compiler that can target both i386 and x64. We could get one elsewhere, but this makes sure that things are consistent with R, which matters e.g. for rggobi. Make sure you let it put itself on the PATH.
+
 === GTK development environment: === 
 Download the latest GTK+
 [http://www.gtk.org/download/win64.php developer bundle] and unzip it into `MinGW/msys/1.0/local`. You might need to create the `local` directory. This includes GLib, ATK, Pango, gdk-pixbuf and GTK+ itself. 
@@ -63,9 +67,17 @@ should do. Next, switch to the
 {{{
 ./bootstrap
 }}}
-If that worked, the build system is ready to be configured:
+If that worked, the build system is ready to be configured. We first need to make sure that the Rtools binaries are first on the path. It is not possible to pre-configure this, because MinGW will prepend its paths when starting the shell. NOTE: the version of GCC might have changed by the time you read this.
+{{{
+export PATH=/c/Rtools/gcc-4.6.3/bin:$PATH
+}}}
+Now, we can finally run the configure script. For 32 bit, it is simple as:
 {{{
 ./configure --with-all-plugins
+}}}
+For 64 bit, we need to override the CC environment variable:
+{{{
+CC="gcc -m64" ./configure --with-all-plugins
 }}}
 and then `make`.
 
