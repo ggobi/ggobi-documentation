@@ -6,11 +6,13 @@ This document attempts to explain how to build GGobi (at least the release branc
 
 === MinGW: === 
 The tools we use to build the GGobi distribution depend
-on having the [http://www.mingw.org MinGW and MSYS tools]
+on having [http://www.mingw.org MinGW]
 installed.  MinGW is Minimalist GNU for Windows, 
-essentially gcc for Windows. MSYS is a build environment for MinGW. An [http://sourceforge.net/projects/mingw/files/Automated%20MinGW%20Installer/mingw-get-inst/ automatic installer] is available. There are options within the installation that allow you to customize which 
+essentially gcc for Windows. An [http://sourceforge.net/projects/mingw/files/Automated%20MinGW%20Installer/mingw-get-inst/ automatic installer] is available. There are options within the installation that allow you to customize which 
 packages are installed. 
-Be sure that you install support for the MinGW base tools, C++ (libtool looks for it), and Fortran (if you want to build rggobi, it's an R thing). You'll also want the Developer Toolkit, which includes things like the GNU autotools.
+Be sure that you install support for the MinGW base tools and C++ (libtool looks for it). You'll also want the Developer Toolkit, which includes things like the GNU autotools.
+
+Start the MinGW Shell.
 
 So that the MinGW aclocal finds the macros we will install, we need to execute the following:
 {{{
