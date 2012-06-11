@@ -31,7 +31,9 @@ Download the latest GTK+
 
 === Libxml2 ===
 
-Get the libxml2 [ftp://xmlsoft.org/libxml2/win32/ binaries] and their libiconv dependency and unzip them into the same tree as the GTK+ stuff.  Place this [http://code.google.com/p/ggobi-documentation/downloads/detail?name=libxml-2.0.pc&can=2&q= pkg-config file] into `/usr/local/lib/pkgconfig`. You will need to rename the import library libxml2.lib to libxml2.dll.a, otherwise the linker has issues finding it.
+For 32 bit, get the libxml2 [ftp://xmlsoft.org/libxml2/win32/ binaries] and their libiconv dependency and unzip them into the same tree as the GTK+ stuff.  Place this [http://code.google.com/p/ggobi-documentation/downloads/detail?name=libxml-2.0.pc&can=2&q= pkg-config file] into `/usr/local/lib/pkgconfig`. You will need to rename the import library libxml2.lib to libxml2.dll.a, otherwise the linker has issues finding it.
+
+For 64 bit, download the source and build the binary and install it.
 
 === Nullsoft Installer: === 
 GGobi uses the nullsoft installation system, so 
