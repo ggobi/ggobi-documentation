@@ -33,12 +33,6 @@ Download the latest GTK+
 
 Get the libxml2 [ftp://xmlsoft.org/libxml2/win32/ binaries] and their libiconv dependency and unzip them into the same tree as the GTK+ stuff.  Place this [http://code.google.com/p/ggobi-documentation/downloads/detail?name=libxml-2.0.pc&can=2&q= pkg-config file] into `/usr/local/lib/pkgconfig`. You will need to rename the import library libxml2.lib to libxml2.dll.a, otherwise the linker has issues finding it.
 
-=== GObject Builder: === 
-You need the 
-[http://www.5z.com/jirka/gob.html GObject builder] to build GGobi from SVN. We provide a [http://code.google.com/p/ggobi-documentation/downloads/detail?name=gob2.exe&can=2&q= binary].
-
-To build it yourself, grab the latest source. You will need the Flex import library (.lib) from the `/usr/local/lib` directory in the zip file from the [http://sourceforge.net/projects/unxutils/files/unxutils/current/ UnxUtils project]. Now, unpack the gob2 archive into your home directory. When running configure, set `LIBS="-lfl -L/usr/local/lib"`.  That way, it will find the flex import library. Now just `make`, and `make install` it.
-
 === Nullsoft Installer: === 
 GGobi uses the nullsoft installation system, so 
 if you want to build the GGobi installer (exe), download and install the latest [http://nsis.sourceforge.net/ nullsoft installer] now.
